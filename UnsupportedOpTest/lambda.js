@@ -3,6 +3,7 @@ const s3 = new AWS.S3();
 
 exports.handler = function (event, context, callback) {
 
+    console.log("test");
     s3.headObject({
         'Bucket': "sigma.smoketest",
         'Key': "myKey"

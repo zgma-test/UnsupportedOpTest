@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "UnsupportedOpTest/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst s3 = new AWS.S3();\n\nexports.handler = function (event, context, callback) {\n\n    s3.headObject({\n        'Bucket': \"sigma.smoketest\",\n        'Key': \"myKey\"\n    }).promise()\n        .then(data => {\n            console.log(data);           // successful response\n            /*\n            data = {\n                AcceptRanges: \"bytes\", \n                ContentLength: 3191, \n                ContentType: \"image/jpeg\", \n                ETag: \"\\\\\"6805f2cfc46c0f04559748bb039d69ae\\\\\"\", \n                LastModified: <Date Representation>, \n                Metadata: {...}, \n                TagCount: 2, \n                VersionId: \"null\"\n            }\n            */\n        })\n        .catch(err => {\n            console.log(err, err.stack); // an error occurred\n        });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "let AWS = require('aws-sdk');\nconst s3 = new AWS.S3();\n\nexports.handler = function (event, context, callback) {\n\n    console.log(\"test\");\n    s3.headObject({\n        'Bucket': \"sigma.smoketest\",\n        'Key': \"myKey\"\n    }).promise()\n        .then(data => {\n            console.log(data);           // successful response\n            /*\n            data = {\n                AcceptRanges: \"bytes\", \n                ContentLength: 3191, \n                ContentType: \"image/jpeg\", \n                ETag: \"\\\\\"6805f2cfc46c0f04559748bb039d69ae\\\\\"\", \n                LastModified: <Date Representation>, \n                Metadata: {...}, \n                TagCount: 2, \n                VersionId: \"null\"\n            }\n            */\n        })\n        .catch(err => {\n            console.log(err, err.stack); // an error occurred\n        });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "triggers": [],
         "config": {
           "runtime": "nodejs8.10",
@@ -85,7 +85,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1561703086098
+    "lastSave": 1561704316182
   },
   "VCS_STATE": {
     "provider": "GitHub",
